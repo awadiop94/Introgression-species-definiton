@@ -7,7 +7,7 @@ This repository contains scripts for inferring introgression between bacterial s
 - Introgression detection between species
 
    ## Usage
-- Run scripts with Python 3 and R dependencies listed in 'requirements.txt.
+- Run scripts with Python 3 and R dependencies listed in scripts/README.md file.
 
   ## Citation
 - If you use this repository, please cite our work.
