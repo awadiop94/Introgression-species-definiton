@@ -1,4 +1,4 @@
-# Homologous-recombination-Introgression-species-definiton
+# Introgression-species-definiton
 This repository contains scripts for inferring introgression between bacterial species using Average nucleotide identity (ANI), phylogenetics.
 
 ## Features
