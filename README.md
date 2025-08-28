@@ -2,7 +2,6 @@
 This repository contains scripts for inferring introgression between bacterial species using Average nucleotide identity (ANI), phylogenetics.
 
 ## Features
-- Ani-based clustering
 - Phylogenetic tree building
 - Introgression detection between species
 
