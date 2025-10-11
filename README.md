@@ -20,4 +20,3 @@ GENOMES
 genomes   # Input FASTA files
 README.md
 
-
