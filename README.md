@@ -7,16 +7,16 @@ via a master Snakefile.
 
 📂 Directory Structure
 Introgression-species-definiton/
-├── Snakefile_stage1
-├── Snakefile_stage2
-├── Snakefile_stage3
-├── pipelines/
-│   ├── CoreCruncher/
-│   ├── ANI/
-│   ├── ConSpecifix/
-│   └── Introgression/
-├── GENOMES/
-│   └── genomes/   # Input FASTA files
-└── README.md
+Snakefile_stage1
+Snakefile_stage2
+Snakefile_stage3
+pipelines/
+CoreCruncher/
+ANI/
+ConSpecifix/
+Introgression/
+GENOMES/
+genomes/   # Input FASTA files
+README.md
 
 
