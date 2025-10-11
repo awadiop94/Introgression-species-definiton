@@ -6,7 +6,6 @@ and modularity. Each stage can be run independently, or all stages can be run se
 via a master Snakefile.
 
 📂 Directory Structure
-
 Introgression-species-definiton/
 ├── Snakefile_stage1
 ├── Snakefile_stage2
@@ -19,4 +18,5 @@ Introgression-species-definiton/
 ├── GENOMES/
 │   └── genomes/   # Input FASTA files
 └── README.md
+
 
