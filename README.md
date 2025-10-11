@@ -143,7 +143,7 @@ snakemake --unlock -s Snakefile
 Snakefile shoulde be the specific Snakefile_stage... that was interupted or in which the job was incomplete
 
 	
-## Known Issues
+## Additional issues
 If all the genomes analyzed are classified into one ANI-species, all other Snakefile_stages of the pipeline will fail after 
 Snakefile_stage1 complete because the introgression events inference require comparing at least two species.
 
