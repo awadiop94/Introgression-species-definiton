@@ -4,3 +4,18 @@ and inferring introgression between ANI-species and BSC-species, respectively, u
 The pipeline is implemented in Snakemake and split into three stages for clarity
 and modularity. Each stage can be run independently, or all stages can be run sequentially
 via a master Snakefile.
+
+📂 Directory Structure
+
+Introgression-species-definiton/
+├── Snakefile_stage1
+├── Snakefile_stage2
+├── Snakefile_stage3
+├── pipelines/
+│   ├── CoreCruncher/
+│   ├── ANI/
+│   ├── ConSpecifix/
+│   └── Introgression/
+├── GENOMES/
+│   └── genomes/   # Input FASTA files (It is preferable to keep the same input folder name as in Snakefiles)
+└── README.md
