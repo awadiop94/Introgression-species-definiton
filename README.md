@@ -65,18 +65,18 @@ snakemake -s Snakefile_master -j 20
 
 ### Run a specific stage
 
-•	Stage 1:
-	```
-	snakemake -s Snakefile_stage1 -j 20 --use-conda --latency-wait 240
-	```
-•	Stage 2:
-	```
-	snakemake -s Snakefile_stage2 -j 20 --use-conda --latency-wait 240
-	```
-•	Stage 3:
-	```
-	snakemake -s Snakefile_stage3 -j 20 --use-conda --latency-wait 240
-	```
+Stage 1:
+```
+snakemake -s Snakefile_stage1 -j 20 --use-conda --latency-wait 240
+```
+Stage 2:
+```
+snakemake -s Snakefile_stage2 -j 20 --use-conda --latency-wait 240
+```
+Stage 3:
+```
+snakemake -s Snakefile_stage3 -j 20 --use-conda --latency-wait 240
+```
 	
 ## Workflow Stages
 
