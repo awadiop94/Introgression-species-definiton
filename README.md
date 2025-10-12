@@ -15,7 +15,7 @@ Introgression-species-definiton/
 │   ├── ConSpecifix/
 │   └── Introgression/
 ├── GENOMES/
-│   └── genomes/   # Input FASTA files
+│   └── genomes/   # Input FASTA files (we tested the pipeline with 32 genomes of Campylobacter)
 └── README.md
 ```
 
