@@ -20,7 +20,7 @@ def get_ref_genome(wildcards):
 # =============================
 # TARGETS
 # =============================
-rule stage2_all:
+rule all:
     input:
         "configcand.yaml"
         
