@@ -39,7 +39,7 @@ SAMPLES, = glob_wildcards("GENOMES/core_genome/core/{sample}.fa.align")
 # =============================
 # TARGET
 # =============================
-rule all:
+rule stage3_all:
     input:
         "GENOMES/Gene_Flow/QueryDatabase/gene_flow_result_summary.txt",
         "GENOMES/ANI_results/BSCgenome_clusters.csv",
