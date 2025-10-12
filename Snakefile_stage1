@@ -1,0 +1,76 @@
+# Author: Awa Diop adiop2@ncsu.edu
+# Author: Louis-Marie Bobay ljbobay@ncsu.edu
+
+
+# Snakefile_stage1
+import glob
+
+# =============================
+# CONFIG
+# =============================
+
+SAMPLES, = glob_wildcards("GENOMES/core_genome/core/{sample}.fa.align")
+COREGENE_ALIGNMENTS = expand("GENOMES/core_genome/core/{sample}.fa.align", sample=SAMPLES)
+
+# =============================
+# TARGETS
+# =============================
+rule all:
+    input:
+        "GENOMES/core_genome/concat.fa",
+        "GENOMES/ANI_results/genome_clusters.csv",
+        "configref.yaml"
+
+# ==================================================================
+# CORE GENOME, ANI CLUSTERING AND REFERENCE-DATABASE
+# ==================================================================
+
+rule core_genome_within_genus:
+    input:
+        dir = "GENOMES/genomes"
+    output:
+        out1 = "GENOMES/core_genome/concat.fa",
+        out2 = COREGENE_ALIGNMENTS
+    params:
+        dir = directory("GENOMES/core_genome")
+    threads: 8
+    resources: mem_mb=32000
+    shell:
+        "python pipelines/CoreCruncher/corecruncher_master.py \
+            -in {input.dir} -out {params.dir} \
+            -freq 85 -prog usearch -ext .fa -length 80 -score 70 -align mafft"
+
+rule GenomeCluster:
+    input:
+        directory="GENOMES",
+        fasta="GENOMES/core_genome/concat.fa",
+        gene_seq=COREGENE_ALIGNMENTS
+    output:
+        cluster="GENOMES/ANI_results/genome_clusters.csv",
+        distmat="GENOMES/ANI_results/ani/ani.distmat",
+        coregenometree="GENOMES/core_genome/tree.nwk",
+        gene_seq_similarities=expand("GENOMES/core_genome/ani_core_genes/genome_pairs_{sample}.fa.align.csv",
+               sample=SAMPLES)
+    threads: 4
+    resources: mem_mb=16000
+    shell:
+        """
+        ~/.conda/envs/myenv/bin/FastTree -nt -gtr -gamma -boot 1000 {input.fasta} > {output.coregenometree}
+        mkdir -p GENOMES/core_genome/ani_core_genes
+        distmat -sequence {input.fasta} -nucmethod 0 -outfile {output.distmat}
+        python pipelines/ANI/ani_clustering_and_gene_identity.py {input.directory}
+        """
+
+rule reference_Database:
+    input:
+        cluster="GENOMES/ANI_results/genome_clusters.csv",
+        dir="GENOMES"
+    output:
+        conf="configref.yaml"
+    threads: 1
+    resources: mem_mb=2000
+    shell:
+        """
+        mkdir -p GENOMES/Gene_Flow/ReferenceDatabase
+        python pipelines/ConSpecifix/create_Refdb.py {input.dir}
+        """
