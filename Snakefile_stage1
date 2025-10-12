@@ -15,7 +15,7 @@ COREGENE_ALIGNMENTS = expand("GENOMES/core_genome/core/{sample}.fa.align", sampl
 # =============================
 # TARGETS
 # =============================
-rule stage1_all:
+rule all:
     input:
         "GENOMES/core_genome/concat.fa",
         "GENOMES/ANI_results/genome_clusters.csv",
