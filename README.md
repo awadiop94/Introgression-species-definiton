@@ -1,6 +1,6 @@
 # A workflow for performing core genome analysis, ANI clustering, gene flow inference and biological species classification, and inferring introgression between ANI-species and BSC-species, respectively, using the core genome in a modular and reproducible fashion.
 
-The pipeline is implemented in Snakemake and split into three stages for clarity and modularity. Each stage can be run independently, or all stages can be run sequentially via a bash script (to be created if needed).
+The pipeline is implemented in Snakemake and split into three stages for clarity and modularity. Each stage can be run independently, or all stages can be run sequentially.
 
 
 ## Directory Structure:
@@ -178,10 +178,6 @@ snakemake -s Snakefile_stage2 --dag | dot -Tpng > workflow_stage2.png
 ```
 snakemake -s Snakefile_stage3 --dag | dot -Tpng > workflow_stage3.png
 ```
-### Full Workflow
-![Master DAG](workflow_master.png)
-```
-snakemake -s Snakefile_master --dag | dot -Tpng > workflow_master.png
-```
+
 This requires Graphviz (dot command). Install it with:
 conda install -c conda-forge graphviz
