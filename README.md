@@ -138,12 +138,10 @@ In practice, each gene tree was rooted twice using two different species as an o
 ### snakemake issues
 If a job is interrupted or incomplete, the output directory need to be unlocked before re-analyze the job again to complete the job/analysis by running:
 ```
-snakemake --unlock -s Snakefile
+snakemake --unlock -s Snakefile_stage1 #Snakefile_stage1 used as an example
 ```
 Snakefile shoulde be the specific Snakefile_stage... that was interupted or in which the job was incomplete
 
-	
-## Additional issues
 If all the genomes analyzed are classified into one ANI-species, all other Snakefile_stages of the pipeline will fail after 
 Snakefile_stage1 complete because the introgression events inference require comparing at least two species.
 
