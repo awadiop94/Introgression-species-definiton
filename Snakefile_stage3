@@ -141,7 +141,8 @@ rule BSCCluster:
 
 rule BSC_introgression:
     input:
-        "GENOMES/ANI_results/BSCgenome_clusters.csv"
+        BSCcluster="GENOMES/ANI_results/BSCgenome_clusters.csv",
+        intro = "GENOMES/core_genome/filtered_introgression.txt"
     output:
         "GENOMES/core_genome/filtered_introgressionBSC.txt"
     params:
