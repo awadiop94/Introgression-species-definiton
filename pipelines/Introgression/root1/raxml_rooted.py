@@ -32,7 +32,8 @@ def process_gene(gene_file):
 
     outgroup_file = outgroup_dir / gene_file
 
-    if Path(f"{outgroup_file}.tree").exists() or Path(f"{outgroup_file}.raxml.bestTree").exists():
+    final_tree = Path(str(outgroup_file) + ".tree")
+    if final_tree.exists():
         return f"Skipped {gene_file} (already done)"
 
     root = 'NA'
@@ -56,22 +57,15 @@ def process_gene(gene_file):
         f"--model GTR+G "
         f"--bs-trees 100 "
         f"--threads 1 "
-        f"--prefix {gene_file} "
+        f"--prefix {outgroup_dir / gene_file} 
         f"--outgroup {root}"
     )
     os.system(cmd)
 
-    # Move all RAxML output files to outgroup_dir
-    raxml_outputs = glob.glob(f"{gene_file}.raxml.*") + [f"{gene_file}.raxml.bestTree"]
-    for out_file in raxml_outputs:
-        out_file_path = Path(out_file)
-        if out_file_path.exists():
-            shutil.move(str(out_file_path), str(outgroup_dir / out_file_path.name))
-
     # Keep a renamed copy of the best tree
-    final_tree = outgroup_dir / f"{gene_file}.raxml.bestTree"
-    if final_tree.exists():
-        shutil.copy(final_tree, f"{outgroup_file}.tree")
+    best_tree = outgroup_dir / f"{gene_file}.raxml.bestTree"
+    if best_tree.exists():
+        shutil.copy(best_tree, final_tree)
 
 # Run in parallel with 8 workers
 files = os.listdir(core_dir)
