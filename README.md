@@ -120,7 +120,7 @@ Outputs:
 	•	GENOMES/ANI_results/BSCgenome_clusters.csv
 ```
 ### Expected Results
-At the end of the workflow you will obtain:
+These are the different results obtained at the end of the workflow:
 ```
 	•	Core genome within the genus
 	•	ANI clustering results and core gene sequences identities
