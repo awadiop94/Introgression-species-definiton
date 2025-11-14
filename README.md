@@ -160,19 +160,19 @@ Nat Commun 2025
 ## Workflow Overview
 
 ### Stage 1: Core genome & Reference Database
-![Stage 1 DAG](workflow_stage1.png)
+![Stage 1 DAG] (workflow_stage1.png)
 ```
 snakemake -s Snakefile_stage1 --dag | dot -Tpng > workflow_stage1.png
 ```
 
 ### Stage 2: Within-species Gene Flow & Query Database
-![Stage 2 DAG](workflow_stage2.png)
+![Stage 2 DAG] (workflow_stage2.png)
 ```
 snakemake -s Snakefile_stage2 --dag | dot -Tpng > workflow_stage2.png
 ```
 
 ### Stage 3: Between-species Gene Flow & BSC Introgression
-![Stage 3 DAG](workflow_stage3.png)
+![Stage 3 DAG] (workflow_stage3.png)
 ```
 snakemake -s Snakefile_stage3 --dag | dot -Tpng > workflow_stage3.png
 ```
