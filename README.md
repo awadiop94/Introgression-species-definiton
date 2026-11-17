@@ -124,7 +124,7 @@ These are the different results obtained at the end of the workflow:
 ```
 	•	Core genome within the genus
 	•	ANI clustering results and core gene sequences identities
-    •	Reference configuration (configref.yaml) and reference database
+	•	Reference configuration (configref.yaml) and reference database
 	•	Candidate configuration (configcand.yaml) and candidate query database
 	•	Gene flow results (for Biological species classification (BSC species)) --> ConSpecifix
 	•	Final BSC species clusters
